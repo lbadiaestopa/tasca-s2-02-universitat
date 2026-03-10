@@ -86,7 +86,7 @@ FROM persona
 WHERE tipo = 'alumno';
 
 -- 17. Calcula quants alumnes van néixer en 1999. (total)
-SELECT COUNT(id)
+SELECT COUNT(id) AS total
 FROM persona
 WHERE tipo = 'alumno' AND YEAR(fecha_nacimiento) = 1999;
 
