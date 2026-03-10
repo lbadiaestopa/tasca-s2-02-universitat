@@ -2,32 +2,32 @@
 
 
 ## 📈 Resumen
-✅ 13 correctas de 16 queries
+✅ 16 correctas de 21 queries
 
 ## ✅ Query 1: Correcto
 
-⏱ Tiempo: 0.42 ms
+⏱ Tiempo: 0.39 ms
 🔍 No se usó ningún índice en esta consulta.
 
 ---
 
 ## ✅ Query 2: Correcto
 
-⏱ Tiempo: 0.32 ms
+⏱ Tiempo: 0.33 ms
 🔍 No se usó ningún índice en esta consulta.
 
 ---
 
 ## ✅ Query 3: Correcto
 
-⏱ Tiempo: 0.33 ms
+⏱ Tiempo: 0.34 ms
 🔍 No se usó ningún índice en esta consulta.
 
 ---
 
 ## ✅ Query 4: Correcto
 
-⏱ Tiempo: 0.32 ms
+⏱ Tiempo: 0.37 ms
 🔍 No se usó ningún índice en esta consulta.
 
 ---
@@ -41,22 +41,22 @@
 
 ## ✅ Query 6: Correcto
 
-⏱ Tiempo: 0.41 ms
+⏱ Tiempo: 0.40 ms
 ✅ Se usó índice(s) en la consulta: PRIMARY, PRIMARY,id_departamento
 
 ---
 
 ## ✅ Query 7: Correcto
 
-⏱ Tiempo: 0.56 ms
+⏱ Tiempo: 0.59 ms
 ✅ Se usó índice(s) en la consulta: PRIMARY, PRIMARY,id_asignatura,id_curso_escolar, PRIMARY,nif
 
 ---
 
 ## ✅ Query 8: Correcto
 
-⏱ Tiempo: 0.44 ms
-✅ Se usó índice(s) en la consulta: id_profesor,id_grado, PRIMARY, PRIMARY,id_departamento
+⏱ Tiempo: 0.41 ms
+✅ Se usó índice(s) en la consulta: PRIMARY, id_profesor,id_grado, PRIMARY,id_departamento
 
 ---
 
@@ -76,7 +76,7 @@
 
 ## ✅ Query 11: Correcto
 
-⏱ Tiempo: 0.33 ms
+⏱ Tiempo: 0.31 ms
 🔍 No se usó ningún índice en esta consulta.
 
 🚨 **Problemas detectados:**
@@ -136,11 +136,71 @@
  Educación
 ```
 
-⏱ Tiempo: 0.36 ms
+⏱ Tiempo: 0.38 ms
 ✅ Se usó índice(s) en la consulta: id_departamento, id_profesor
 
 ---
 
-## ❌ Query 16: Error
+## ✅ Query 16: Correcto
+
+⏱ Tiempo: 0.31 ms
+🔍 No se usó ningún índice en esta consulta.
+
+---
+
+## ❌ Query 17: Incorrecto
+```diff
+--- 
++++ 
+@@ -1,2 +1,2 @@
+-total
++COUNT(id)
+ 2.00
+```
+
+⏱ Tiempo: 0.32 ms
+🔍 No se usó ningún índice en esta consulta.
+
+---
+
+## ✅ Query 18: Correcto
+
+⏱ Tiempo: 0.35 ms
+✅ Se usó índice(s) en la consulta: PRIMARY, id_departamento
+
+---
+
+## ❌ Query 19: Incorrecto
+```diff
+--- 
++++ 
+@@ -1,10 +1,10 @@
+ departamento | total
++Educación | 3.00
+ Informática | 2.00
+ Matemáticas | 2.00
+ Economía y Empresa | 2.00
+-Educación | 3.00
++Química y Física | 2.00
+ Agronomía | 1.00
+-Química y Física | 2.00
+ Filología | 0.00
+ Derecho | 0.00
+ Biología y Geología | 0.00
+```
+
+⏱ Tiempo: 0.35 ms
+✅ Se usó índice(s) en la consulta: id_departamento
+
+---
+
+## ✅ Query 20: Correcto
+
+⏱ Tiempo: 0.36 ms
+✅ Se usó índice(s) en la consulta: id_grado
+
+---
+
+## ❌ Query 21: Error
 - **Descripción**: 'NoneType' object is not iterable
 
