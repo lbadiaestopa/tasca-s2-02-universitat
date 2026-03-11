@@ -123,7 +123,7 @@ ORDER BY total DESC;
 SELECT g.nombre AS grau, a.tipo, SUM(a.creditos) AS total_creditos
 FROM grado g
 JOIN asignatura a ON g.id = a.id_grado
-GROUP BY grau, tipus;
+GROUP BY grau, a.tipo;
 
 -- 23. Retorna un llistat que mostri quants alumnes s'han matriculat d'alguna assignatura en cadascun dels cursos escolars. El resultat haurà de mostrar dues columnes, una columna amb l'any d'inici del curs escolar i una altra amb el nombre d'alumnes matriculats. (anyo_inicio, total)
 SELECT ce.anyo_inicio, COUNT(DISTINCT p.id) AS total
@@ -141,7 +141,16 @@ GROUP BY p.id, p.nombre, p.apellido1, p.apellido2
 ORDER BY total DESC;
 
 -- 25. Retorna totes les dades de l'alumne/a més jove. (*)
-
+SELECT *
+FROM persona 
+WHERE tipo = 'alumno'
+ORDER BY fecha_nacimiento DESC 
+LIMIT 1;
 
 -- 26. Retorna un llistat amb els professors/es que tenen un departament associat i que no imparteixen cap assignatura. (apellido1, apellido2, nombre)
-
+SELECT p.apellido1, p.apellido2, p.nombre
+FROM persona p
+JOIN profesor pr ON p.id = pr.id_profesor 
+JOIN departamento d ON pr.id_departamento = d.id
+LEFT JOIN asignatura a ON pr.id_profesor = a.id_profesor
+WHERE a.id IS NULL;
